@@ -3,6 +3,7 @@
  ## O Problema
  Os caixas de autoatendimento foram sem dúvidas uma das maiores revoluções para o mundo dos supermercados. Sua função é agilizar o processo de pesagem e pagamento de produtos e reduzir a necessidade de interferência humana.
  Porém, existem situações em que essa tecnologia, criada para promover agilidade e autonomia, pode acabar provocando o efeito oposto.
+ ### Situação
  Imagine-se numa situação em que você está com pressa, dando uma visita rápida ao mercado apenas para comprar o necessário. Você corre pelos corredores, colocando no carrinho todos os itens que precisa e torcendo para não pegar fila no pagamento.
  Mas o seu medo se prova real.
  Você vê filas enormes frente a todas as esteiras e instantâneamente se convence de que vai chegar atrasado em seu compromisso. Você então respira fundo e observa o lugar com mais atenção, percebendo alguns caixas de autoatendimento vazios. Com esperança brilhando em seus olhos, você vai até eles e começa a passar suas compras, agradecendo pelo milagre da tecnologia. Até que você coloca as maçãs de seu carrinho na balança, não recebendo resposta da máquina.
