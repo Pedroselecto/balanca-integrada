@@ -1,6 +1,6 @@
 # O que é
  O projeto apresenta uma balança inteligente de baixo custo que utiliza visão computacional para suprir uma "falha" nos sistemas de Self-Checkout de hortifruti atuais: A identificação e pesagem de Frutas e Vegetais.
- ## O Problema
+ # O Problema
  Os caixas de autoatendimento foram sem dúvidas uma das maiores revoluções para o mundo dos supermercados. Sua função é agilizar o processo de pesagem e pagamento de produtos e reduzir a necessidade de interferência humana.
  Porém, existem situações em que essa tecnologia, criada para promover agilidade e autonomia, pode acabar provocando o efeito oposto.
  ### Situação
@@ -11,7 +11,7 @@
  
  Rapidamente seus olhos passam a buscar por um antendente para te ajudar, mas havia apenas um ali. Um que atendia um homem que parecia estar levando o Hortifruti inteiro para casa. Por um instante você sentiu raiva por ter apenas uma pessoa trabalhando ali, até pensou em reclamar, mas sentiu pena do funcionário ao vê-lo ter que digitar os códigos de cada fruta, uma por uma, no caixa. Realmente não havia uma forma mais fácil de fazer isso?
  Bem, é justamente isso que a nossa solução vem trazer.
- ## A solução
+ # A solução
  Nossa ideia é unir a balança a uma câmera integrada a um modelo de inteligência artificial especializado em identificação de imagens para automatizar o processo de reconhecimento e pesagem de frutas e vegetais. O sistema funciona da seguinte forma:
  - Cliente posiciona o item na balança
  - Câmera capta diversas imagens do item e envia para a IA, que identifica o objeto e retorna seu nome e valor
@@ -20,4 +20,12 @@
 
 Parece simples de mais, não é?
 Talvez bom até de mais para ser verdade. Mas fique tranquilo. Abaixo mostrarei o protótipo funcional, junto com os dados que pudemos adquirir em nossos testes, ressaltando as virtudes e problemas envolvidos no projeto.
- 
+ # O Protótipo
+ Usamos um micro-controlador Arduino junto a um módulo de carga de 10kg para realizarmos a pesagem. Os dados coletados por eles eram enviados para um notebook que, além de realizar os cálculos necessários, também usava sua própria câmera para rodar a IA responsável pela identificação dos itens.
+ ## Validação e Resultados
+** Acurácia da IA:** A identificação sob iluminação ideal (>700 lux) atingiu uma precisão de 96,7%. Sua maior queda sendo com iluminação abaixo de 300 lux, caindo para 66,7% no pior caso.
+
+**Confiabilidade da balança:** Por limitações de Hardware, tivemos uma margem de variação de 1 a 4 grams do peso real de items. Isso pode ser resolvido com investimento em Hardwares de maior qualidade
+
+## Principais desafios
+
