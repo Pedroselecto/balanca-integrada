@@ -40,4 +40,9 @@ Talvez bom até de mais para ser verdade. Mas fique tranquilo. Abaixo mostrarei 
  ### Filtragem da medida
  O valor apresentado pelo sistema estava finalmente condizendo com o do peso sobre a balança, só que tinha um problema, a leitura estava oscilando muito. A primeira vista aquilo não fez sentido algum. O peso estava estático, então por que a medição estava mudando?
  Foi nesse momento que percebemos que o mundo real é muito diferente de um software de simulação. As microvibrações da mesa, o ruído elétrico dos cabos soldados e até mesmo a temperatura do próprio circuito da célula de carga alteravam a medição, fazendo com que ela fosse imprecisa.
+ Como quase tudo nessa vida, esse problema poderia facilmente ser resolvido com dinheiro, mas como os bons estudantes universitários que eramos, não tinhamos algum. Por isso optamos pelo plano B: Matemática.
+ Alteramos o sistema para funcionar da seguinte forma:
+ Ao invés de ler o valor pós calibração e já mostrá-lo logo na tela, fizemos com que o sistema armazenasse suas 10 primeiras leituras e fizesse uma média com elas, repetindo este processo cinco vezes. Então organizamos os 5 valores em ordem e pegamos o do meio (mediana). Isso tirou a nossa medição da montanha russa que ela parecia estar presa, mas ainda havia um problema.
+  Mesmo que muito menos que antes, a leitura ainda variava um pouco, como se agora estivesse num pequeno carrosel subindo e descendo. Provavelmente não seria um problema grande no produto final, mas queríamos deixar a leitura mais fiel possível.
+  Foi então que descobrimos o Filtro EMA (Média Móvel Exponencial), um método de filtragem que usa o valor das leituras passadas para determinar a atual, fazendo a medição "deslizar" dos valores mais distantes até o que queríamos.
  
