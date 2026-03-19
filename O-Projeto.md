@@ -23,9 +23,21 @@ Talvez bom até de mais para ser verdade. Mas fique tranquilo. Abaixo mostrarei 
  # O Protótipo
  Usamos um micro-controlador Arduino junto a um módulo de carga de 10kg para realizarmos a pesagem. Os dados coletados por eles eram enviados para um notebook que, além de realizar os cálculos necessários, também usava sua própria câmera para rodar a IA responsável pela identificação dos itens.
  ## Validação e Resultados
-** Acurácia da IA:** A identificação sob iluminação ideal (>700 lux) atingiu uma precisão de 96,7%. Sua maior queda sendo com iluminação abaixo de 300 lux, caindo para 66,7% no pior caso.
+**Acurácia da IA:** A identificação sob iluminação ideal (>700 lux) atingiu uma precisão de 96,7%. Sua maior queda sendo com iluminação abaixo de 300 lux, caindo para 66,7% no pior caso.
 
 **Confiabilidade da balança:** Por limitações de Hardware, tivemos uma margem de variação de 1 a 4 grams do peso real de items. Isso pode ser resolvido com investimento em Hardwares de maior qualidade
 
 ## Principais desafios
-
+### Calibração da balança: 
+ Quando ligamos o protótipo pela primeira vez, tivemos a esperança de ver uma medição precisa e rápida no monitor.
+ Pena que ficou só na esperança mesmo. 
+ O sistema nos retornou números enormes que não pareciam fazer sentido algum. Então nós estudamos as razões do problema e como resolvê-lo, chegando a uma única resposta: Calibração.
+ Nós então dividimos o problema em fatias e o resolvemos parte por parte.
+ Primeiro lidamos com o "peso fantasma" da própria estrutura da balança (prato, parafusos, etc), que fazia a balança mostrar valores mesmo estando vazia. Para fazer isso usamos este peso falso para determinar um ponto zero (variável Offset) 
+ Em seguida colocamos pesos conhecidos na balança e anotamos os valores retornados por ela, usando os resultados para calcularmos nosso fator de escala (variável Slope).
+ Após implementar estas simples, porém demoradas, soluções, nossos problemas estavam finalmente acabados!
+ Ou pelo menos foi o que achamos...
+ ### Filtragem da medida
+ O valor apresentado pelo sistema estava finalmente condizendo com o do peso sobre a balança, só que tinha um problema, a leitura estava oscilando muito. A primeira vista aquilo não fez sentido algum. O peso estava estático, então por que a medição estava mudando?
+ Foi nesse momento que percebemos que o mundo real é muito diferente de um software de simulação. As microvibrações da mesa, o ruído elétrico dos cabos soldados e até mesmo a temperatura do próprio circuito da célula de carga alteravam a medição, fazendo com que ela fosse imprecisa.
+ 
