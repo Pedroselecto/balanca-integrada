@@ -42,6 +42,6 @@ Talvez bom até de mais para ser verdade. Mas fique tranquilo. Abaixo mostrarei 
   Foi então que descobrimos o Filtro EMA (Média Móvel Exponencial), um método de filtragem que usa o valor das leituras passadas para determinar a atual, fazendo a medição "deslizar" dos valores mais distantes até o que queríamos.
   Após aplicarmos estas mudanças, obtivemos os seguintes resultados:
 ## Validação e Resultados
-**Acurácia da IA:** A identificação sob iluminação ideal (>700 lux) atingiu uma precisão de 96,7%. Sua maior queda sendo com iluminação abaixo de 300 lux, caindo para 66,7% no pior caso.
+**Confiabilidade da balança:** Pelas limitações de hardware mencionadas anteriormente, ainda tivemos uma variação de 1 a 4 gramas do peso real dos items. Mas isso pode ser facilmente resolvido com hardware de melhor qualidade.
 
-**Confiabilidade da balança:** Por limitações de Hardware, tivemos uma margem de variação de 1 a 4 grams do peso real de items. Isso pode ser resolvido com investimento em Hardwares de maior qualidade
+**Acurácia da IA:** A identificação sob iluminação ideal (>700 lux) atingiu uma precisão de 96,7%. Sua maior queda sendo com iluminação abaixo de 300 lux, caindo para 66,7% no pior caso.
