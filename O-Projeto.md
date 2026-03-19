@@ -18,8 +18,8 @@
  - A balança pesa o item
  - O sistema por fim calcula o preço total a ser pago e o exibe
 
-Parece simples de mais, não é?
-Talvez bom até de mais para ser verdade. Mas fique tranquilo. Abaixo mostrarei o protótipo funcional, junto com os dados que pudemos adquirir em nossos testes, ressaltando as virtudes e problemas envolvidos no projeto.
+ Parece simples de mais, não é?
+ Talvez bom até de mais para ser verdade. Mas fique tranquilo. Abaixo mostrarei o protótipo funcional, junto com os dados que pudemos adquirir em nossos testes, ressaltando as virtudes e problemas envolvidos no projeto.
  # O Protótipo
  Usamos um micro-controlador Arduino junto a um módulo de carga de 10kg para realizarmos a pesagem. Os dados coletados por eles eram enviados para um notebook que, além de realizar os cálculos necessários, também usava sua própria câmera para rodar a IA responsável pela identificação dos itens.
 ## Principais desafios
