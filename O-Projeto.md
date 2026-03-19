@@ -26,20 +26,32 @@ Talvez bom até de mais para ser verdade. Mas fique tranquilo. Abaixo mostrarei 
 ### Calibração da balança: 
  Quando ligamos o protótipo pela primeira vez, tivemos a esperança de ver uma medição precisa e rápida no monitor.
  Pena que ficou só na esperança mesmo. 
+ 
  O sistema nos retornou números enormes que não pareciam fazer sentido algum. Então nós estudamos as razões do problema e como resolvê-lo, chegando a uma única resposta: Calibração.
+ 
  Nós então dividimos o problema em fatias e o resolvemos parte por parte.
+ 
  Primeiro lidamos com o "peso fantasma" da própria estrutura da balança (prato, parafusos, etc), que fazia a balança mostrar valores mesmo estando vazia. Para fazer isso usamos este peso falso para determinar um ponto zero (variável Offset) 
+ 
  Em seguida colocamos pesos conhecidos na balança e anotamos os valores retornados por ela, usando os resultados para calcularmos nosso fator de escala (variável Slope).
+ 
  Após implementar estas simples, porém demoradas, soluções, nossos problemas estavam finalmente acabados!
  Ou pelo menos foi o que achamos...
  ### Filtragem da medida
  O valor apresentado pelo sistema estava finalmente condizendo com o do peso sobre a balança, só que tinha um problema, a leitura estava oscilando muito. A primeira vista aquilo não fez sentido algum. O peso estava estático, então por que a medição estava mudando?
+ 
  Foi nesse momento que percebemos que o mundo real é muito diferente de um software de simulação. As microvibrações da mesa, o ruído elétrico dos cabos soldados e até mesmo a temperatura do próprio circuito da célula de carga alteravam a medição, fazendo com que ela fosse imprecisa.
+ 
  Como quase tudo nessa vida, esse problema poderia facilmente ser resolvido com dinheiro, mas como os bons estudantes universitários que eramos, não tinhamos algum. Por isso optamos pelo plano B: Matemática.
+ 
  Alteramos o sistema para funcionar da seguinte forma:
+ 
  Ao invés de ler o valor pós calibração e já mostrá-lo logo na tela, fizemos com que o sistema armazenasse suas 10 primeiras leituras e fizesse uma média com elas, repetindo este processo cinco vezes. Então organizamos os 5 valores em ordem e pegamos o do meio (mediana). Isso tirou a nossa medição da montanha russa que ela parecia estar presa, mas ainda havia um problema.
+ 
   Mesmo que muito menos que antes, a leitura ainda variava um pouco, como se agora estivesse num pequeno carrosel subindo e descendo. Provavelmente não seria um problema grande no produto final, mas queríamos deixar a leitura mais fiel possível.
+  
   Foi então que descobrimos o Filtro EMA (Média Móvel Exponencial), um método de filtragem que usa o valor das leituras passadas para determinar a atual, fazendo a medição "deslizar" dos valores mais distantes até o que queríamos.
+  
   Após aplicarmos estas mudanças, obtivemos os seguintes resultados:
 ## Validação e Resultados
 **Confiabilidade da balança:** Pelas limitações de hardware mencionadas anteriormente, ainda tivemos uma variação de 1 a 4 gramas do peso real dos items. Mas isso pode ser facilmente resolvido com hardware de melhor qualidade.
