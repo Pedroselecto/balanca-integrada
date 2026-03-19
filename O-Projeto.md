@@ -22,11 +22,6 @@ Parece simples de mais, não é?
 Talvez bom até de mais para ser verdade. Mas fique tranquilo. Abaixo mostrarei o protótipo funcional, junto com os dados que pudemos adquirir em nossos testes, ressaltando as virtudes e problemas envolvidos no projeto.
  # O Protótipo
  Usamos um micro-controlador Arduino junto a um módulo de carga de 10kg para realizarmos a pesagem. Os dados coletados por eles eram enviados para um notebook que, além de realizar os cálculos necessários, também usava sua própria câmera para rodar a IA responsável pela identificação dos itens.
- ## Validação e Resultados
-**Acurácia da IA:** A identificação sob iluminação ideal (>700 lux) atingiu uma precisão de 96,7%. Sua maior queda sendo com iluminação abaixo de 300 lux, caindo para 66,7% no pior caso.
-
-**Confiabilidade da balança:** Por limitações de Hardware, tivemos uma margem de variação de 1 a 4 grams do peso real de items. Isso pode ser resolvido com investimento em Hardwares de maior qualidade
-
 ## Principais desafios
 ### Calibração da balança: 
  Quando ligamos o protótipo pela primeira vez, tivemos a esperança de ver uma medição precisa e rápida no monitor.
@@ -45,4 +40,8 @@ Talvez bom até de mais para ser verdade. Mas fique tranquilo. Abaixo mostrarei 
  Ao invés de ler o valor pós calibração e já mostrá-lo logo na tela, fizemos com que o sistema armazenasse suas 10 primeiras leituras e fizesse uma média com elas, repetindo este processo cinco vezes. Então organizamos os 5 valores em ordem e pegamos o do meio (mediana). Isso tirou a nossa medição da montanha russa que ela parecia estar presa, mas ainda havia um problema.
   Mesmo que muito menos que antes, a leitura ainda variava um pouco, como se agora estivesse num pequeno carrosel subindo e descendo. Provavelmente não seria um problema grande no produto final, mas queríamos deixar a leitura mais fiel possível.
   Foi então que descobrimos o Filtro EMA (Média Móvel Exponencial), um método de filtragem que usa o valor das leituras passadas para determinar a atual, fazendo a medição "deslizar" dos valores mais distantes até o que queríamos.
- 
+  Após aplicarmos estas mudanças, obtivemos os seguintes resultados:
+## Validação e Resultados
+**Acurácia da IA:** A identificação sob iluminação ideal (>700 lux) atingiu uma precisão de 96,7%. Sua maior queda sendo com iluminação abaixo de 300 lux, caindo para 66,7% no pior caso.
+
+**Confiabilidade da balança:** Por limitações de Hardware, tivemos uma margem de variação de 1 a 4 grams do peso real de items. Isso pode ser resolvido com investimento em Hardwares de maior qualidade
