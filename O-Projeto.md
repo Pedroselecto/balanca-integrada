@@ -1,9 +1,9 @@
 # O que é
  O projeto apresenta uma balança inteligente de baixo custo que utiliza visão computacional para suprir uma "falha" nos sistemas de Self-Checkout de hortifruti atuais: A identificação e pesagem de Frutas e Vegetais.
- # O Problema
+# O Problema
  Os caixas de autoatendimento foram sem dúvidas uma das maiores revoluções para o mundo dos supermercados. Sua função é agilizar o processo de pesagem e pagamento de produtos e reduzir a necessidade de interferência humana.
  Porém, existem situações em que essa tecnologia, criada para promover agilidade e autonomia, pode acabar provocando o efeito oposto.
- ### Situação
+### Situação
  Imagine-se numa situação em que você está com pressa, dando uma visita rápida ao mercado apenas para comprar o necessário. Você corre pelos corredores, colocando no carrinho todos os itens que precisa e torcendo para não pegar fila no pagamento.
  Mas o seu medo se prova real.
  
@@ -11,7 +11,7 @@
  
  Rapidamente seus olhos passam a buscar por um antendente para te ajudar, mas havia apenas um ali. Um que atendia um homem que parecia estar levando o Hortifruti inteiro para casa. Por um instante você sentiu raiva por ter apenas uma pessoa trabalhando ali, até pensou em reclamar, mas sentiu pena do funcionário ao vê-lo ter que digitar os códigos de cada fruta, uma por uma, no caixa. Realmente não havia uma forma mais fácil de fazer isso?
  Bem, é justamente isso que a nossa solução vem trazer.
- # A solução
+# A solução
  Nossa ideia é unir a balança a uma câmera integrada a um modelo de inteligência artificial especializado em identificação de imagens para automatizar o processo de reconhecimento e pesagem de frutas e vegetais. O sistema funciona da seguinte forma:
  - Cliente posiciona o item na balança
  - Câmera capta diversas imagens do item e envia para a IA, que identifica o objeto e retorna seu nome e valor
@@ -20,20 +20,20 @@
 
  Parece simples de mais, não é?
  Talvez bom até de mais para ser verdade. Mas fique tranquilo. Abaixo mostrarei o protótipo funcional, junto com os dados que pudemos adquirir em nossos testes, ressaltando as virtudes e problemas envolvidos no projeto.
- # O Protótipo
+# O Protótipo
  Usamos um micro-controlador Arduino junto a um módulo de carga de 10kg para realizarmos a pesagem. Os dados coletados por eles eram enviados para um notebook que, além de realizar os cálculos necessários, também usava sua própria câmera para rodar a IA responsável pela identificação dos itens.
 ## Principais desafios
 ### Calibração da balança: 
  Quando ligamos o protótipo pela primeira vez, tivemos a esperança de ver uma medição precisa e rápida no monitor.
  Pena que ficou só na esperança mesmo. 
  
- O sistema nos retornou números enormes que não pareciam fazer sentido algum. Então nós estudamos as razões do problema e como resolvê-lo, chegando a uma única resposta: Calibração.
+ O sistema nos retornou números enormes que não pareciam fazer sentido algum. Então nós estudamos as razões do problema e como resolvê-lo, chegando a uma única resposta: **Calibração**.
  
  Nós então dividimos o problema em fatias e o resolvemos parte por parte.
  
- Primeiro lidamos com o "peso fantasma" da própria estrutura da balança (prato, parafusos, etc), que fazia a balança mostrar valores mesmo estando vazia. Para fazer isso usamos este peso falso para determinar um ponto zero (variável Offset) 
+ Primeiro lidamos com o "peso fantasma" da própria estrutura da balança (prato, parafusos, etc), que fazia a balança mostrar valores mesmo estando vazia. Para fazer isso usamos este peso falso para determinar um ponto zero (variável **Offset**) 
  
- Em seguida colocamos pesos conhecidos na balança e anotamos os valores retornados por ela, usando os resultados para calcularmos nosso fator de escala (variável Slope).
+ Em seguida colocamos pesos conhecidos na balança e anotamos os valores retornados por ela, usando os resultados para calcularmos nosso fator de escala (variável **Slope**).
  
  Após implementar estas simples, porém demoradas, soluções, nossos problemas estavam finalmente acabados!
  Ou pelo menos foi o que achamos...
@@ -50,7 +50,7 @@
  
   Mesmo que muito menos que antes, a leitura ainda variava um pouco, como se agora estivesse num pequeno carrosel subindo e descendo. Provavelmente não seria um problema grande no produto final, mas queríamos deixar a leitura mais fiel possível.
   
-  Foi então que descobrimos o Filtro EMA (Média Móvel Exponencial), um método de filtragem que usa o valor das leituras passadas para determinar a atual, fazendo a medição "deslizar" dos valores mais distantes até o que queríamos.
+  Foi então que descobrimos o **Filtro EMA** (Média Móvel Exponencial), um método de filtragem que usa o valor das leituras passadas para determinar a atual, fazendo a medição "deslizar" dos valores mais distantes até o que queríamos.
   
   Após aplicarmos estas mudanças, obtivemos os seguintes resultados:
 ## Validação e Resultados
