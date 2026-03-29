@@ -80,3 +80,8 @@ Como demonstrado no diagrama acima, o nosso protótipo faz uso dos seguintes com
 Segue abaixo um vídeo mostrando o funcionamento do protótipo.
 
 https://github.com/user-attachments/assets/e969aca2-2922-4cfa-acbf-6861fbd4e168
+
+## Conclusão
+Este projeto foi desenvolvido ao longo de 6 meses como parte da disciplina de Projeto de Sistemas Embarcados no IBMEC-RJ.
+Embora este README ofereça uma visão geral da jornada de desenvolvimento e de seus desafios, dados mais específicos como a metodologia científica, análises de precisão e os testes de acurácia da IA podem ser consultados no nosso artigo completo.
+Agradeço pelo interesse em nosso projeto. Se tiver qualquer dúvida, sinta-se a vontade para abrir uma Issue
