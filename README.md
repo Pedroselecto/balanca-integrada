@@ -67,4 +67,6 @@ Como demonstrado no diagrama acima, o nosso protótipo faz uso dos seguintes com
 - Arduino Mega: Microcontrolador que optamos por utilizar neste protótipo. É responsável por controlar a transição de sinais e dados entre os componentes, além de realizar operações matemáticas como a própria calibração da balança
 - Computador: No protótipo, usamos um computador para rodar o script python responsável pela inicialização do modelo de IA, utilizando uma câmera ligada ao próprio computador para realizar a identificação das frutas e vegetais. O script também mostra na tela os objetos identificados, o peso detectado e o valor total da compra.
 ## Funcionamento
-Seguirá abaixo um vídeo mostrando o funcionamento do protótipo.
+Segue abaixo um vídeo mostrando o funcionamento do protótipo.
+
+https://github.com/user-attachments/assets/e969aca2-2922-4cfa-acbf-6861fbd4e168
